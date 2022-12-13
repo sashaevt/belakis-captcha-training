@@ -3,21 +3,13 @@ import { useEffect } from 'react';
 
 function PressArea() {
     return (
-        <div class="pressArea">
+        <div className="pressArea">
             <CaptchaButtonsGroup />
         </div>
     );
 }
 
 function CaptchaButtonsGroup() {
-    useEffect(() => {
-        document.addEventListener('keypress', detectKeyPress, true)
-    });
-
-    const detectKeyPress = (event) => {
-        
-    }
-
     const letters = [
         'q', 'w', 'e', 'a', 's', 'd'
     ];
@@ -26,7 +18,7 @@ function CaptchaButtonsGroup() {
         return array[Math.floor(Math.random() * array.length)];
     }
     return (
-        <div class="captcha-buttons-group">
+        <div className="captcha-buttons-group">
             <CaptchaButton letter={getRandomLetter(letters)} />
             <CaptchaButton letter={getRandomLetter(letters)} />
             <CaptchaButton letter={getRandomLetter(letters)} />
@@ -41,8 +33,18 @@ function CaptchaButtonsGroup() {
 }
 
 function CaptchaButton(props) {
+    useEffect(() => {
+        document.addEventListener('keypress', detectKeyPress, true)
+    });
+
+    const detectKeyPress = (event) => {
+        console.log(event.key)
+        console.log(props.letter)
+        console.log(event.key === props.letter.toLowerCase())
+    }
+
     return (
-        <div class="captchaButton">
+        <div className="captchaButton">
             <h1>{props.letter.toUpperCase()}</h1>
         </div>
     );
