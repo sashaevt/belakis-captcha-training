@@ -19,11 +19,29 @@ function CaptchaButtonsGroup() {
     }
 
     const buttonsArray = [];
+    const currentLettersArray = [];
     for (let i = 0; i < 8; i++) {
+        let currentLetter = getRandomLetter(letters);
+        currentLettersArray.push(currentLetter);
+        let classToApply = 'captcha-button captcha-button-' + i;
         buttonsArray.push(
-            <CaptchaButton key={i} letter={ getRandomLetter(letters) } />
+            <CaptchaButton key={i} letter={ currentLetter } class={ classToApply }/>
         )
     }
+
+    useEffect(() => {
+        document.addEventListener('keypress', detectKeyPress, true)
+    });
+
+    const detectKeyPress = (event) => {
+        console.log(event.key)
+        console.log(event.key === buttonsArray[0]?.props.letter)
+        currentLettersArray.shift()
+        console.log(buttonsArray[0])
+        console.log(event.currentTarget)
+        buttonsArray.shift()
+    }
+
     return (
         <div className="captcha-buttons-group">
             { buttonsArray }
@@ -32,18 +50,8 @@ function CaptchaButtonsGroup() {
 }
 
 function CaptchaButton(props) {
-    useEffect(() => {
-        document.addEventListener('keypress', detectKeyPress, true)
-    });
-
-    const detectKeyPress = (event) => {
-        console.log(event.key)
-        console.log(props.letter)
-        console.log(event.key === props.letter.toLowerCase())
-    }
-
     return (
-        <div className="captcha-button">
+        <div className={props.class}>
             <div>{ props.letter.toUpperCase() }</div>
         </div>
     );
