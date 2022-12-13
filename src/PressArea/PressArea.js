@@ -19,15 +19,15 @@ function CaptchaButtonsGroup() {
     }
     return (
         <div className="captcha-buttons-group">
-            <CaptchaButton letter={getRandomLetter(letters)} />
-            <CaptchaButton letter={getRandomLetter(letters)} />
-            <CaptchaButton letter={getRandomLetter(letters)} />
-            <CaptchaButton letter={getRandomLetter(letters)} />
-            <CaptchaButton letter={getRandomLetter(letters)} />
-            <CaptchaButton letter={getRandomLetter(letters)} />
-            <CaptchaButton letter={getRandomLetter(letters)} />
-            <CaptchaButton letter={getRandomLetter(letters)} />
-            <CaptchaButton letter={getRandomLetter(letters)} />
+            <CaptchaButton letter={ getRandomLetter(letters) } />
+            <CaptchaButton letter={ getRandomLetter(letters) } />
+            <CaptchaButton letter={ getRandomLetter(letters) } />
+            <CaptchaButton letter={ getRandomLetter(letters) } />
+            <CaptchaButton letter={ getRandomLetter(letters) } />
+            <CaptchaButton letter={ getRandomLetter(letters) } />
+            <CaptchaButton letter={ getRandomLetter(letters) } />
+            <CaptchaButton letter={ getRandomLetter(letters) } />
+            <CaptchaButton letter={ getRandomLetter(letters) } />
         </div>
     );
 }
