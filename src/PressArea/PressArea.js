@@ -44,8 +44,8 @@ function CaptchaButton(props) {
     }
 
     return (
-        <div className="captchaButton">
-            <h1>{props.letter.toUpperCase()}</h1>
+        <div className="captcha-button">
+            { props.letter.toUpperCase() }
         </div>
     );
 }
