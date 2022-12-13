@@ -17,17 +17,16 @@ function CaptchaButtonsGroup() {
     function getRandomLetter(array) {
         return array[Math.floor(Math.random() * array.length)];
     }
+
+    const buttonsArray = [];
+    for (let i = 0; i < 8; i++) {
+        buttonsArray.push(
+            <CaptchaButton key={i} letter={ getRandomLetter(letters) } />
+        )
+    }
     return (
         <div className="captcha-buttons-group">
-            <CaptchaButton letter={ getRandomLetter(letters) } />
-            <CaptchaButton letter={ getRandomLetter(letters) } />
-            <CaptchaButton letter={ getRandomLetter(letters) } />
-            <CaptchaButton letter={ getRandomLetter(letters) } />
-            <CaptchaButton letter={ getRandomLetter(letters) } />
-            <CaptchaButton letter={ getRandomLetter(letters) } />
-            <CaptchaButton letter={ getRandomLetter(letters) } />
-            <CaptchaButton letter={ getRandomLetter(letters) } />
-            <CaptchaButton letter={ getRandomLetter(letters) } />
+            { buttonsArray }
         </div>
     );
 }
